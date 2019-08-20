@@ -1,0 +1,19 @@
+<h1><%= @task.title %></h1>
+
+<%= link_to 'Update task', edit_task_path(@task) %>
+
+<p class="details"><%= @task.details %></p>
+
+<p>This task is <% if @task.completed %>
+  <%= "completed!" %>
+  <% else %>
+  <%= "not completed!" %>
+  <% end %>
+  <%= link_to task_path(@task),
+      method: :delete,
+      data: {confirm: "Are you sure?"} do %></li>
+      <i class="far fa-trash-alt"></i>
+      <% end %>
+</p>
+
+<%= link_to 'Back', root_path %>
